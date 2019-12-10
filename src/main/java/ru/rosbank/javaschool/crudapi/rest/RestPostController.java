@@ -24,14 +24,14 @@ public class RestPostController {
   }
 
 
-  @GetMapping(params = {"first"})
-  public int getNewPostsNumber(@RequestParam("first") int firstPostId) {
+  @GetMapping(params = {"firstPostId"})
+  public int getNewPostsNumber(@RequestParam int firstPostId) {
     logger.info(Thread.currentThread().getName());
     return service.getNewPostsNumber(firstPostId);
   }
 
-  @GetMapping(params = {"last", "i"})
-  public List<PostResponseDto> getSomePosts(@RequestParam("last") int lastPost, @RequestParam("i") int i) {
+  @GetMapping(params = {"lastPost", "i"})
+  public List<PostResponseDto> getSomePosts(@RequestParam int lastPost, @RequestParam int i) {
     logger.info(Thread.currentThread().getName());
     return service.getPosts(lastPost, i);
   }
